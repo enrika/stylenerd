@@ -1,8 +1,8 @@
 <h1> All Clothing Items</h1>
- 
+ <%= link_to 'Add New Clothing Item', new_clothing_item_path %>
  <ul>
  <% @clothings.each do  |clothing| %>
- <li> <%= clothing.title %></li>
+ <li>  <%= link_to clothing.title, clothing %>  <% link_to 'Edit', edit_clothing_item_path(clothing)  %>  <%= link_to 'Remove', clothing_item_path(clothing), method: :delete, data: {confirm: 'Are you sure, there\'s no coming back? from this'} %></li>
     <% end %>
 
 </ul>

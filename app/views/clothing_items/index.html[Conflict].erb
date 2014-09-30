@@ -1,0 +1,8 @@
+<h1> All Clothing Items</h1>
+ <%= link_to 'Add New Clothing Item', new_clothing_item_path %>
+ <ul>
+ <% @clothings.each do  |clothing| %>
+ <li>  <%= link_to clothing.title, clothing %> <%= link_to 'Edit', edit_clothing_item_path(clothing) %></li>
+    <% end %>
+
+</ul>

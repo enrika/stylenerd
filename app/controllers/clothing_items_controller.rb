@@ -4,6 +4,8 @@ class ClothingItemsController < ApplicationController
     def index
       
       @clothings = ClothingItem.all
+      @img_url = "http://www.placehold.it/640x480"
+      
 
     end
 
@@ -11,28 +13,23 @@ class ClothingItemsController < ApplicationController
       @clothing = ClothingItem.find(params[:id])
     end
 
-
-#new and create go together
     
-      def new
-        @clothing = ClothingItem.new
-      end
+    def new
+      @clothing = ClothingItem.new
+    end
     
 
-      def create
-        @clothing = ClothingItem.new(clothing_params)
- 
-          if @clothing.save
-            redirect_to @clothing
-           else
-            render 'new'
-          end
-      end
+    def create
+      @clothing = ClothingItem.new(clothing_params)
+
+        if @clothing.save
+          redirect_to @clothing
+         else
+          render 'new'
+        end
+    end
     
 
- 
-
-##################
 
 #edit and update go together
 
@@ -56,7 +53,7 @@ class ClothingItemsController < ApplicationController
 
     
   
-  def destroy
+    def destroy
       @clothing = ClothingItem.find(params[:id]) #get the id parameter from the request
       @clothing.destroy
 
@@ -64,7 +61,7 @@ class ClothingItemsController < ApplicationController
 
     end
   
- private
+    private
     # Using a private method to encapsulate the permissible parameters
     # is just a good pattern since you'll be able to reuse the same
     # permit list between create and update. Also, you can specialize

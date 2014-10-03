@@ -11,6 +11,24 @@
 // about supported directives.
 //
 //= require jquery
+//= application1.js
+//= js/jquery-1.8.3.min.js
+//= js/jquery-ui-1.10.3.custom.min.js
+//= js/jquery.ui.touch-punch.min.js
+//= js/bootstrap.min.js
+//= js/jquery.isotope.min.js
+//= js/jquery.magnific-popup.js
+//= js/jquery.fitvids.min.js
+//= assets/twitter/jquery.tweet.js
+//= js/bootstrap-select.js
+//= js/bootstrap-switch.js
+//= js/flatui-checkbox.js
+//= js/flatui-radio.js
+//= js/jquery.tagsinput.js
+//= js/jquery.placeholder.js
+//= js/custom.js
+
+
 
 //= require jquery_ujs
 //= require turbolinks

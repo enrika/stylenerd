@@ -1,8 +1,55 @@
-<h1> All Clothing Items</h1>
- <%= link_to 'Add New Clothing Item', new_clothing_item_path %>
- <ul>
+
+ 
+ <!-- <ul>
  <% @clothings.each do  |clothing| %>
  <li>  <%= link_to clothing.title, clothing %>  <% link_to 'Edit', edit_clothing_item_path(clothing)  %>  <%= link_to 'Remove', clothing_item_path(clothing), method: :delete, data: {confirm: 'Are you sure, there\'s no coming back? from this'} %></li>
     <% end %>
 
-</ul>
+</ul> -->
+
+<section id="gallery">
+
+        <div class="container">
+
+                <header>
+                <h1>Your Closet</h1>
+
+                <p class="lead">Browse through Your Closet and Create Spiffy Outfits.</p>
+
+                </header>
+
+            <!--////////// Sortable Gallery Filters //////////-->
+                <div id="filters" class="gallery-filter">
+                    <select>
+                        <option value="*">All</option>
+                        <option value=".basics">Tops</option>
+                        <option value=".business">Bottoms</option>
+                        <option value=".business-casual">1 Pieces</option>
+                        <option value=".everyday">Accesories</option>
+                    </select>    
+                </div>
+            
+                <%= link_to 'Add New Clothing Item', new_clothing_item_path, class: "btn btn-danger btn-hg inline" %>
+                
+                <div id="gallery-items">
+                    <% @clothings.each do  |clothing| %>
+
+                                
+
+                        <div class="col-lg-3 col-md-4 col-xs-6 gallery-item gallery-popup all <%= @category %>">
+                            <figure>  
+                                <a href="<%= @img_url %>" class="zoom"><img src="<%= @img_url %>" alt="gallery-image" title="yamama" class="img-responsive" /></a>
+
+                                <!--/// link to a details portfolio page ///-->
+                                <div class="item-hover">
+                                    <a href="#">Add to Outfit</a> 
+                                </div>   
+
+                            </figure>
+                        </div>
+                                
+
+                      <% end %>
+                </div>
+        </div>
+</section>

@@ -22,10 +22,10 @@
                 <div id="filters" class="gallery-filter">
                     <select>
                         <option value="*">All</option>
-                        <option value=".basics">Tops</option>
-                        <option value=".business">Bottoms</option>
-                        <option value=".business-casual">1 Pieces</option>
-                        <option value=".everyday">Accesories</option>
+                        <option value=".top">Tops</option>
+                        <option value=".bottom">Bottoms</option>
+                        <option value=".one piece">1 Pieces</option>
+                        <option value=".misc">Misc</option>
                     </select>    
                 </div>
             
@@ -36,14 +36,17 @@
 
                                 
 
-                        <div class="col-lg-3 col-md-4 col-xs-6 gallery-item gallery-popup all <%= @category %>">
+                        <div class="col-lg-3 col-md-4 col-xs-6 gallery-item gallery-popup all <%= clothing.form_type %> <%= @category %>">
                             <figure>  
-                                <a href="<%= @img_url %>" class="zoom"><img src="<%= @img_url %>" alt="gallery-image" title="yamama" class="img-responsive" /></a>
+                                <a href="<%= clothing.img_url %>" class="zoom"><img src="<%= clothing.img_url %>" width="600" height="300" alt="gallery-image" title="clothing.title" class="img-responsive" /></a>
 
                                 <!--/// link to a details portfolio page ///-->
                                 <div class="item-hover">
                                     <a href="#">Add to Outfit</a> 
-                                </div>   
+                                </div> 
+                                <div class="item-hover-right">
+                                    <%= link_to("Edit", "clothing_items/#{clothing.id}/edit") %> | <%= link_to "Delete", "clothing_items/#{clothing.id}",  method: :delete, data:  { confirm: "Are you sure?" } %>
+                                </div>    
 
                             </figure>
                         </div>

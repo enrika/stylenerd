@@ -24,7 +24,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap_form'
 
 gem 'autoprefixer-rails'
+
 gem 'simple_form'
+
+gem 'filepicker-rails'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc

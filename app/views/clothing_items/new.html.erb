@@ -7,14 +7,11 @@
            
            
 
-<%= simple_form_for @clothing,  defaults: { label: false, input_html: { id:'contact-form', class: 'form-control input-hg short' } } do |f| %>
-  
-  <%= f.select(:clothing_type, options_for_select([['Clothing Type'],['pants'], ['shirt'], ['dress'], ['accessory'], ['shoes']]))%>
-  <%= f.input :title, input_html: { maxlength: 20, placeholder: "Nick Name" } %>
-  <%= f.input :color, input_html: { placeholder: 'Dominate Color' } %>
-  
-  <button type="submit" class="btn btn-inverse btn-hg btn-block" name="submit">Send</button>
-<% end %>
+<%= render "form" %>
+
+
+
+ <%= filepicker_js_include_tag %>
 
 
 

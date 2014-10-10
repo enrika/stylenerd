@@ -1,49 +1,92 @@
 class ClothingItemsController < ApplicationController
   
+  
+      
 
-    def index
+
+      def index
       
       @clothings = ClothingItem.all
-      @img_url = "http://www.placehold.it/640x480"
-      
+      end
 
-    end
 
-    def show
+      def show
       @clothing = ClothingItem.find(params[:id])
-    end
+      end
+
+
+      def new
+        @clothing = ClothingItem.new
+      end
 
     
-    def new
-      @clothing = ClothingItem.new
-    end
+      def edit
+        @clothing = ClothingItem.find(params[:id]) #get the id parameter from the request
+        @clothing_title = ClothingItem.find(params[:id])
+      end
     
+  
+      def create
+        @clothing = ClothingItem.new(clothing_params) # this is calling the strongs params action
+        
+        
+        if @clothing.clothing_type == ("sweater" || "shirt" || "jacket")
+          @clothing.form_type = "top"
 
-    def create
-      @clothing = ClothingItem.new(clothing_params)
+          elsif @clothing.clothing_type == "pants" || "shorts" || "skirt"
+            @clothing.form_type = "bottom"
+
+          elsif @clothing.clothing_type == "dress" || "jumpsuit" || "romper"
+           @clothing.form_type = "one_piece"
+
+          else @clothing.form_type = "misc" 
+        end
+
+
 
         if @clothing.save
-          redirect_to @clothing
-         else
+          redirect_to @clothing, notice: 'Cloting Item was successfully created.'
+
+        else
           render 'new'
         end
-    end
     
+      end  
 
 
-#edit and update go together
+        
 
-    def edit
-      @clothing = ClothingItem.find(params[:id]) #get the id parameter from the request
-      @clothing_title = ClothingItem.find(params[:id])
-    end
+
 
 
     def update
-      @clothing = ClothingItem.find(params[:id])
+        @clothing = ClothingItem.find(params[:id])
+              
 
-        if @clothing.update
-          redirect_to @clothing
+            if @clothing.clothing_type == ("sweater" || "shirt" || "jacket")
+              @clothing.form_type = "top"
+
+              elsif @clothing.clothing_type == "pants" || "shorts" || "skirt"
+                @clothing.form_type = "bottom"
+
+              elsif @clothing.clothing_type == "dress" || "jumpsuit" || "romper"
+               @clothing.form_type = "one_piece"
+
+              else @clothing.form_type = "misc" 
+            end
+
+
+
+
+
+
+        if @clothing.update(clothing_params)
+          
+         
+
+          redirect_to @clothing, notice: 'Cloting Item was successfully updated.'
+        @msg = "alert-success"
+
         else
           render 'edit' #if the update is completed?? redirect to that item
           #else re render the edit view (which is the view we are currently on)
@@ -51,8 +94,6 @@ class ClothingItemsController < ApplicationController
     end
 
 
-    
-  
     def destroy
       @clothing = ClothingItem.find(params[:id]) #get the id parameter from the request
       @clothing.destroy
@@ -60,7 +101,10 @@ class ClothingItemsController < ApplicationController
       redirect_to clothing_items_path
 
     end
-  
+
+
+    
+
     private
     # Using a private method to encapsulate the permissible parameters
     # is just a good pattern since you'll be able to reuse the same
@@ -70,5 +114,9 @@ class ClothingItemsController < ApplicationController
       params.require(:clothing_item).permit(:title, :color, :clothing_type, :form_type, :img_url )
     end
   
-  
-end
+
+
+    end
+
+
+    

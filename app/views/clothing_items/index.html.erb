@@ -19,9 +19,11 @@
                 </header>
 
             <!--////////// Sortable Gallery Filters //////////-->
+
                 <div id="filters" class="gallery-filter">
                     <select>
-                        <option value="*">All</option>
+                        <option value="*">Filter by Type</option>
+                       <!--  <option value="*">All</option> -->
                         <option value=".top">Tops</option>
                         <option value=".bottom">Bottoms</option>
                         <option value=".one piece">1 Pieces</option>
@@ -29,15 +31,18 @@
                     </select>    
                 </div>
             
-                <%= link_to 'Add New Clothing Item', new_clothing_item_path, class: "btn btn-danger btn-hg inline" %>
+                <%= link_to 'Add New Clothing Item', new_clothing_item_path, data: { no_turbolink: true }, class: "btn btn-danger btn-hg inline"  %>
                 
+
+            <!--///////// Display all clothing items from controller/////////// -->
+
+
                 <div id="gallery-items">
                     <% @clothings.each do  |clothing| %>
 
-                                
-
                         <div class="col-lg-3 col-md-4 col-xs-6 gallery-item gallery-popup all <%= clothing.form_type %> <%= @category %>">
-                            <figure>  
+                            <figure> 
+                           <!--  display image from clothing_item  --> 
                                 <a href="<%= clothing.img_url %>" class="zoom"><img src="<%= clothing.img_url %>" width="600" height="300" alt="gallery-image" title="clothing.title" class="img-responsive" /></a>
 
                                 <!--/// link to a details portfolio page ///-->

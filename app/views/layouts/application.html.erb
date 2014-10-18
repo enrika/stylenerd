@@ -5,12 +5,27 @@
   <title>StyleNerd</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
 </head>
  <!-- Scrollspy set in the body -->
     <body id="home" data-spy="scroll" data-target=".main-nav" data-offset="73">
-
+<script src="../../js/jquery-1.8.3.min.js"></script>
+    <script src="../../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.isotope.min.js"></script>
+    <script src="../../js/jquery.magnific-popup.js"></script>
+    <script src="../../js/jquery.fitvids.min.js"></script>
+    <script src="../../assets/twitter/jquery.tweet.js"></script>
+    <script src="../../js/bootstrap-select.js"></script>
+    <script src="../../js/bootstrap-switch.js"></script>
+    <script src="../../js/flatui-checkbox.js"></script>
+    <script src="../../js/flatui-radio.js"></script>
+    <script src="../../js/jquery.tagsinput.js"></script>
+    <script src="../../js/jquery.placeholder.js"></script>
+    <script src="../../js/custom.js"></script>
     <!--///////////////////////////////////////// PARALLAX BACKGROUND ////////////////////////////////////////-->
 
     <!-- image is set in the CSS as a background image -->
@@ -46,16 +61,24 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Menu items go here -->
                     <li class="active hidden"><a href="#home">Home</a></li>
-                    <li><a href="/clothing_items">Your Closet</a></li>
-                    <li><a href="#features">Outfits</a></li>
-                     
+                    <li><a data-no-turbolink href="/clothing_items">Your Closet</a></li>
+                    <li><a data-no-turbolink href="/outfits">Outfits</a></li>
+                    <li><a data-no-turbolink href="/calendar">Calendar</a></li>
+                    <li><a data-no-turbolink href="/inspiration">Inspiration</a></li>
+                    <!-- <li><a href="/wishlists">Wishlist</a></li> -->
                     
-                    <li><a href="#gallery">Inspirations</a></li>
-                    <!-- <li><a href="#pricing">Pricing</a></li> -->
-                    <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-                    <li><a href="login">Sign Out</a></li>
+                    <!-- <li><a href="login">Sign Out</a></li> -->
                     <!-- If you want sub-menu items, do them like this
-                    
+                   
+                    <li class="dropdown">
+                    <a href="/clothing_items" class="dropdown-toggle" data-toggle="dropdown">Your Closet <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/clothing_items">Clothes</a></li>
+                            <li><a href="/outfits">Outfits</a></li>
+                        </ul>
+                    </li>
+
                     You just need to delete these comment lines -->
                 </ul>
             </div>
@@ -113,21 +136,7 @@
     <!--//////////////////////////////////////// JAVASCRIPT LOAD ////////////////////////////////////////-->
 
     <!-- Feel free to remove the scripts you are not going to use -->
-    <script src="../../js/jquery-1.8.3.min.js"></script>
-    <script src="../../js/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/jquery.isotope.min.js"></script>
-    <script src="../../js/jquery.magnific-popup.js"></script>
-    <script src="../../js/jquery.fitvids.min.js"></script>
-    <script src="../../assets/twitter/jquery.tweet.js"></script>
-    <script src="../../js/bootstrap-select.js"></script>
-    <script src="../../js/bootstrap-switch.js"></script>
-    <script src="../../js/flatui-checkbox.js"></script>
-    <script src="../../js/flatui-radio.js"></script>
-    <script src="../../js/jquery.tagsinput.js"></script>
-    <script src="../../js/jquery.placeholder.js"></script>
-    <script src="../../js/custom.js"></script>
+    
 
     <!--//////////////////////////////////////// end JAVASCRIPT LOAD ////////////////////////////////////////-->
 

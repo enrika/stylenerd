@@ -1,0 +1,27 @@
+
+
+
+
+
+<%= simple_form_for [@clothing_item, @outfit]  do |f| %> 
+<%= f.text_field :title, placeholder: 'Outfit Title', class: 'form-control input-hg short' %><br>
+
+
+
+<%= f.filepicker_field :img_url %><br>
+
+<!-- for                  for outfit, current model Im building, next what is going to identify the unique associated items most times ids (PLURAL!!!!) @clothings is the associated (grab all) associatin model, which is defined in the oufit (the model were currently buiding on), then the "id" is the value that is passed, and "title" is the name in the drop down that is shown to the end user ->  
+ -->
+
+ 
+  
+  
+
+<div class="field">
+  <%= collection_check_boxes(:outfit, :clothing_item_ids, @clothings, :id, :title) %>
+</div> 
+
+
+<button type="submit" class="btn btn-inverse btn-hg btn-block" name="submit">Save</button>
+<% end %>
+

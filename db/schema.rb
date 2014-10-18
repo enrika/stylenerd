@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004145734) do
+ActiveRecord::Schema.define(version: 20141010160801) do
 
   create_table "cateogries", force: true do |t|
     t.string   "title"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20141004145734) do
     t.string   "form_type"
     t.string   "img_url"
     t.string   "filepicker_url"
+  end
+
+  create_table "clothing_items_outfits", id: false, force: true do |t|
+    t.integer "clothing_item_id"
+    t.integer "outfit_id"
   end
 
   create_table "images", force: true do |t|

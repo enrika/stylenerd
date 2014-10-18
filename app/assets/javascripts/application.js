@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require wiselinks
+//= require jquery_ujs
 //= application1.js
 //= js/jquery-1.8.3.min.js
 //= js/jquery-ui-1.10.3.custom.min.js
@@ -30,6 +32,6 @@
 
 
 
-//= require jquery_ujs
+
 //= require turbolinks
 //= require_tree .

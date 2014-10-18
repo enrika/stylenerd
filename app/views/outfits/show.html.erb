@@ -1,0 +1,36 @@
+<section id="gallery">
+
+      <div class="container">
+
+            <h1>  <%= @outfit.title %> Outfit</h1>
+             
+             <div class="alert role="alert" <%= @msg %>"><p  id="notice"><%#= notice %></p></div>
+             
+
+
+             <div>
+              <strong>Clothing Itemz: </strong>
+              <%= @outfit.clothing_items.map {|c| c.title}.join(', ') %>
+              </div>
+
+
+             <div> 
+             <%= filepicker_image_tag @outfit.img_url, w: 360, h: 360, fit: 'clip' %>
+             </div>
+
+             
+
+            <%= link_to 'Edit', edit_outfit_path %>|<%= link_to 'Schedule', outfits_path %>
+<div><%= link_to 'Back', outfits_path %></div>
+      </div>
+
+
+
+
+
+
+</section>
+
+
+
+

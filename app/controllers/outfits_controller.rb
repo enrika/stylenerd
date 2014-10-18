@@ -9,6 +9,8 @@ class OutfitsController < ApplicationController
 
       def show
         @outfit = Outfit.find(params[:id])
+        
+
         @clothings = ClothingItem.where(:id => params[:clothing_item_ids])
         @outfiters = @outfit.clothing_items
       end
@@ -27,9 +29,8 @@ class OutfitsController < ApplicationController
       def create
         @outfit = Outfit.new(outfit_params) # (outfit_params) is calling the strongs params action
           #find them associated clothing items if any..
-        # @clothings = params[:outfit][:clothing_item_ids]
-        @clothings = ClothingItem.where(params[:clothing_item_ids])
-
+       
+        @clothings = ClothingItem.where(:id => params[:clothing_item_ids])
         @outfit.clothing_items << @clothings
         # clothing = ClothingItem.find(params[:outfits][:clothing_item_ids])
         
@@ -37,9 +38,10 @@ class OutfitsController < ApplicationController
 
         if @outfit.save
           
-            redirect_to @outfit, notice: 'Cloting Item was successfully created.'
-
+            redirect_to @outfit, notice: 'Outfit Item was successfully created.'
+            
         else
+            flash[:danger] = @outfit.errors.full_messages
             render 'new'
         end
     
@@ -91,11 +93,12 @@ class OutfitsController < ApplicationController
           if @outfit.update(outfit_params)
             
            
-
-            redirect_to @outfit, notice: 'Cloting Item was successfully updated.'
-            @msg = "alert-success"
+            
+            redirect_to @outfit, notice: 'Outfit was successfully updated.'
+            
 
           else
+            flash[:danger] = @outfit.errors.full_messages
             render 'edit' #if the update is completed?? redirect to that item
             #else re render the edit view (which is the view we are currently on)
           end

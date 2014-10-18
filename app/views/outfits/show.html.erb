@@ -1,12 +1,11 @@
 <section id="gallery">
 
       <div class="container">
+            <%= render "shared/flash" %>
+            
+
 
             <h1>  <%= @outfit.title %> Outfit</h1>
-             
-             <div class="alert role="alert" <%= @msg %>"><p  id="notice"><%#= notice %></p></div>
-             
-
 
              <div>
               <strong>Clothing Itemz: </strong>
@@ -21,7 +20,7 @@
              
 
             <%= link_to 'Edit', edit_outfit_path %>|<%= link_to 'Schedule', outfits_path %>
-<div><%= link_to 'Back', outfits_path %></div>
+        <div><%= link_to 'Back', outfits_path %></div>
       </div>
 
 

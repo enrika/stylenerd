@@ -1,28 +1,27 @@
 <section id="gallery">
 
-        <div class="container">
+    <div class="container">
+        <%= render "shared/flash" %>
 
-<h1> Clothing Item:<%= @clothing.title %></h1>
- 
- <div class="alert role="alert" <%= @msg %>"><p  id="notice"><%#= notice %></p></div>
- 
-
-
-<%= filepicker_image_tag @clothing.img_url, w: 360, h: 360, fit: 'clip' %>
-
- <ul>
- 
- <li> <%= @clothing.title %></li>
- <li> <%= @clothing.color %></li>
- <li> <%= @clothing.clothing_type %></li>
- <li> <%= @clothing.form_type %></li>
+        <h1> Clothing Item:<%= @clothing.title %></h1>
+         
 
 
-</ul>
+        <%= filepicker_image_tag @clothing.img_url, w: 360, h: 360, fit: 'clip' %>
 
-<%= link_to 'Back', clothing_items_path %>
+         <ul>
+         
+         <li> <%= @clothing.title %></li>
+         <li> <%= @clothing.color %></li>
+         <li> <%= @clothing.clothing_type %></li>
+         <li> <%= @clothing.form_type %></li>
 
-</div>
+
+        </ul>
+
+        <%= link_to 'Back', clothing_items_path %>
+
+    </div>
 
 
 

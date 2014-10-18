@@ -1,0 +1,24 @@
+
+
+    <% flash.each do |key, value| %>
+    <div class='alert alert-<%= key %>' role='alert'>
+      <ul>
+
+<!-- check to see if flash value is an array or just 1 string, (which will throw errors) show all msg if an array or show the 1 msg if it is just a string -->
+      <%  if value.is_a?(Array)  %> 
+
+              <% value.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+
+        <% else %>
+
+              <%= value %>
+        
+        <% end %>
+
+
+
+      </ul>
+    </div>
+  <% end %>

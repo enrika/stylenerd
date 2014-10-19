@@ -32,13 +32,13 @@ class OutfitsController < ApplicationController
        
         @clothings = ClothingItem.where(:id => params[:clothing_item_ids])
         @outfit.clothing_items << @clothings
-        # clothing = ClothingItem.find(params[:outfits][:clothing_item_ids])
+        # clothing = ClothingItem.find(params[:clothing_item_ids])
         
         @outfit.save
 
         if @outfit.save
           
-            redirect_to @outfit, notice: 'Outfit Item was successfully created.'
+            redirect_to @outfit
             
         else
             flash[:danger] = @outfit.errors.full_messages
@@ -94,11 +94,10 @@ class OutfitsController < ApplicationController
             
            
             
-            redirect_to @outfit, notice: 'Outfit was successfully updated.'
+            redirect_to @outfit
             
 
           else
-            flash[:danger] = @outfit.errors.full_messages
             render 'edit' #if the update is completed?? redirect to that item
             #else re render the edit view (which is the view we are currently on)
           end

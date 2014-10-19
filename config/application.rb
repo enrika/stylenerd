@@ -12,8 +12,8 @@ Bundler.require(*Rails.groups)
 
 module StyleNerd
   class Application < Rails::Application
+    # copy and pasted config out of here and put in .env for github security
 
-config.filepicker_rails.api_key = "AWxYPS9NJSH2yKS1c7h7fz"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

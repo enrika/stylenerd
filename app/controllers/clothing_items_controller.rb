@@ -23,6 +23,11 @@ class ClothingItemsController < ApplicationController
       def edit
         @clothing = ClothingItem.find(params[:id]) #get the id parameter from the request
         @clothing_title = ClothingItem.find(params[:id])
+
+
+
+
+
       end
     
   
@@ -61,9 +66,9 @@ class ClothingItemsController < ApplicationController
 
     def update
         @clothing = ClothingItem.find(params[:id])
-              
+          clothing_type = @clothing.clothing_type    
 
-            if @clothing.clothing_type == ("sweater" || "shirt" || "jacket")
+            if @clothing.clothing_type == "sweater" || "shirt" || "jacket"
               @clothing.form_type = "top"
 
               elsif @clothing.clothing_type == "pants" || "shorts" || "skirt"

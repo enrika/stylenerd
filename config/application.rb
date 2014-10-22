@@ -12,6 +12,8 @@ Bundler.require(*Rails.groups)
 
 module StyleNerd
   class Application < Rails::Application
+
+    config.filepicker_rails.api_key = "Your filepicker.io API Key"
     # copy and pasted config out of here and put in .env for github security
 
     # Settings in config/environments/* take precedence over those specified here.

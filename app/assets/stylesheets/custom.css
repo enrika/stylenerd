@@ -1,1 +1,20 @@
 /* ===== START YOUR CUSTOMIZATIONS HERE ===== */
+
+
+
+
+
+
+.outfitter {
+min-height: 600px;
+background-color: rgb(239, 239, 239);
+text-align: center;
+}
+
+#outfitter h2 {
+  font-weight: 300;
+margin: 0;
+padding: 0;
+font-size: 43px;
+}
+

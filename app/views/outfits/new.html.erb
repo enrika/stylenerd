@@ -1,24 +1,120 @@
-<section >
 
-    <div class="container">
+    <%= filepicker_js_include_tag %>
 
 
-          <h1> Add New Outfit</h1>
+
+
+
+
+
+    <!--/////////////////////////////////////// BLOG SECTION ////////////////////////////////////////-->
+<section id="gallery">
+
+  <div class="container">
+
+            <header>
+                <h1>Create a Spiffy Outfit.</h1>
+                <p class="lead">Just Drag Clothing Items to New Outfit Box & Save</p>
+
+                <div id="filters" class="gallery-filter">
+                    <select>
+                        <option value="*">All Types</option>
+                       <!--  <option value="*">All</option> -->
+                        <option value=".top">Tops</option>
+                        <option value=".bottom">Bottoms</option>
+                        <option value=".one piece">1 Pieces</option>
+                        <option value=".misc">Misc</option>
+                    </select>    
+                </div>
+
+            </header>
+
            
-           
 
-<%= render "form" %>
+     <div class="row blog-layout">
+                
+                <!--/// MAIN COLUMN ///-->
+        <div class="col-lg-9 pull-left">
+                    
+                    
+                    <!--/// BLOG ITEM 1 ///-->
+                <div class="blog-item">
+                        
+                    <div class="col-lg-12">
+                
+
+            <!--///////// Display all clothing items from controller/////////// -->
+
+
+                        <div id="gallery-items">
+                            <% @clothings.each do  |clothing| %>
+
+                                <div class="col-lg-4 col-md-4 col-xs-6 gallery-item gallery-popup all <%= clothing.form_type %> <%= @category %>">
+                                    <figure> 
+                           <!--  display image from clothing_item  --> 
+                                    <a href="<%= clothing.img_url %>" class="zoom"><img src="<%= clothing.img_url %>" width="600" height="300" alt="gallery-image" title="clothing.title" class="img-responsive" /></a>
+
+                                        <!--/// link to a details portfolio page ///-->
+                                        <div class="item-hover">
+                                            <a href="#">Add to Outfit</a> 
+                                        </div> 
+                                        <div class="item-hover-right">
+                                            <%= link_to("Edit", "clothing_items/#{clothing.id}/edit") %> | <%= link_to "Delete", "clothing_items/#{clothing.id}",  method: :delete, data:  { confirm: "Are you sure?" } %>
+                                        </div>    
+
+                                    </figure>
+                                </div>
+                                
+
+                            <% end %>
+                        </div> <!-- end gallery items div -->
+                    </div> <!-- end col lg 12  div -->
+                            
+                 </div><!-- end blog item div -->
+
+
+        </div> <!-- end col lg 9 div -->
 
 
 
- <%= filepicker_js_include_tag %>
+                <!--/// SIDEBAR ///-->
+                <div class="col-md-3 pull-right" >
+                    
+                    <h2>New Outfit</h2>
+                    <%= simple_form_for [@clothing_item, @outfit]  do |f| %> 
+                        <%= f.text_field :title, placeholder: 'Outfit Title', class: 'form-control input-hg short' %><br>
+
+                     <div class="row outfitter">
+                            <div> 
+                        
+
+                        
+
+                            </div>
+                     </div>
+                        <div class="row">
+                            Image: <%= f.filepicker_field :img_url %><br>
+                            <button type="submit" class="btn btn-inverse btn-hg btn-block" name="submit">Save</button>
+                    <% end %>
+                        </div> <!-- row -->
+                </div > <!-- #end col md 3 pull right -->
 
 
 
-          
 
 
 
 
-    </div>
+
+     </div> <!-- end row blog layout div -->
+
+
+    </div><!-- /container -->
+
 </section>
+
+    <!--/////////////////////////////////////// end FEATURES SECTION ////////////////////////////////////////-->
+
+
+
+

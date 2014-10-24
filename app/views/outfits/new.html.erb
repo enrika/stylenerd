@@ -58,10 +58,6 @@
                                         <div class="item-hover">
                                             <a href="#">Add to Outfit</a> 
                                         </div> 
-                                        <div class="item-hover-right">
-                                            <%= link_to("Edit", "clothing_items/#{clothing.id}/edit") %> | <%= link_to "Delete", "clothing_items/#{clothing.id}",  method: :delete, data:  { confirm: "Are you sure?" } %>
-                                        </div>    
-
                                     </figure>
                                 </div>
                                 
@@ -93,7 +89,12 @@
                             </div>
                      </div>
                         <div class="row">
-                            Image: <%= f.filepicker_field :img_url %><br>
+                            Outfit Image: <%= f.filepicker_field :img_url %><br>
+                            Outfit Inspiration: <%= f.filepicker_field :img_url %><br>
+                            <div class="checks">
+                              <%= collection_check_boxes(:outfit, :clothing_item_ids, @clothings, :id, :title) %>
+                            </div> 
+
                             <button type="submit" class="btn btn-inverse btn-hg btn-block" name="submit">Save</button>
                     <% end %>
                         </div> <!-- row -->

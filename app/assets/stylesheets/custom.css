@@ -3,7 +3,9 @@
 
 
 
-
+.checks {
+  display: none;
+}
 
 .outfitter {
 min-height: 600px;

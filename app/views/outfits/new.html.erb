@@ -90,10 +90,10 @@
                             Outfit Inspiration: <%= f.filepicker_field :img_url %><br>
                             <div class="checks">
                               <%= collection_check_boxes(:outfit, :clothing_item_ids, @clothings, :id, :id) %>
-                            <div> <button type="reset" class="clear btn btn-inverse btn-hg btn-block" >Start Over</button></div>
+                            
 
                             </div> 
-
+                            <div> <button type="reset" class="clear btn btn-inverse btn-hg btn-block" >Start Over</button></div>
                            
                             <button type="submit" class="btn btn-inverse btn-hg btn-block" name="submit">Save</button>
                     <% end %>

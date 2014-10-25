@@ -13,7 +13,6 @@
  */
  
 
-
-
-@import "main.css";
-@import "custom.css";
+// = require_self
+// = require 'main'
+// = require 'custom'

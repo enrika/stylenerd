@@ -43,20 +43,19 @@
                     <div class="col-lg-12">
                 
 
-            <!--///////// Display all clothing items from controller/////////// -->
-
+            <!--///////// Display all clothing items from controller/////////// --><img src="">
 
                         <div id="gallery-items">
                             <% @clothings.each do  |clothing| %>
 
-                                <div class="col-lg-4 col-md-4 col-xs-6 gallery-item gallery-popup all <%= clothing.form_type %> <%= @category %>">
+                                <div name= "<%= clothing.id %>" class="col-lg-4 col-md-4 col-xs-6 gallery-item gallery-popup all <%= clothing.form_type %> <%= @category %>">
                                     <figure> 
                            <!--  display image from clothing_item  --> 
-                                    <a href="<%= clothing.img_url %>" class="zoom"><img src="<%= clothing.img_url %>" width="600" height="300" alt="gallery-image" title="clothing.title" class="img-responsive" /></a>
+                                    <a href="<%= clothing.img_url %>" class="zoom"><img src="<%= clothing.img_url %>" width="600" height="300" alt="gallery-image" title="<%= clothing.title %>" class="img-responsive" /></a>
 
                                         <!--/// link to a details portfolio page ///-->
                                         <div class="item-hover">
-                                            <a href="#">Add to Outfit</a> 
+                                            <a id="add" class="add" data-check="#outfit_clothing_item_ids_<%= clothing.id %>"data-title="<%= clothing.title %>" data-img='<div class="center"><a href="#" class="outfit"><img src="<%= clothing.img_url %>" width="200" alt="gallery-image" title="<%= clothing.title %>" class="img-responsive" ></a></div>' href="#">Add to Outfit</a> 
                                         </div> 
                                     </figure>
                                 </div>
@@ -80,21 +79,22 @@
                     <%= simple_form_for [@clothing_item, @outfit]  do |f| %> 
                         <%= f.text_field :title, placeholder: 'Outfit Title', class: 'form-control input-hg short' %><br>
 
-                     <div class="row outfitter">
-                            <div> 
-                        
+                     <div class="row">
+                     <div class="outfitter">
 
-                        
-
-                            </div>
+                     </div>
+                            
                      </div>
                         <div class="row">
                             Outfit Image: <%= f.filepicker_field :img_url %><br>
                             Outfit Inspiration: <%= f.filepicker_field :img_url %><br>
                             <div class="checks">
-                              <%= collection_check_boxes(:outfit, :clothing_item_ids, @clothings, :id, :title) %>
+                              <%= collection_check_boxes(:outfit, :clothing_item_ids, @clothings, :id, :id) %>
+                            <div> <button type="reset" class="clear btn btn-inverse btn-hg btn-block" >Start Over</button></div>
+
                             </div> 
 
+                           
                             <button type="submit" class="btn btn-inverse btn-hg btn-block" name="submit">Save</button>
                     <% end %>
                         </div> <!-- row -->
@@ -113,7 +113,30 @@
     </div><!-- /container -->
 
 </section>
+<script type="text/javascript">
 
+
+    
+$( ".add" ).click(function() {
+  var mydata = $( this ).data();
+  $(".outfitter").append(mydata.img);
+  $(mydata.check).prop('checked', true); 
+  $alert(mydata.check); 
+});
+
+
+
+
+$( "button.clear" ).click(function() {
+  $( ".outfitter" ).empty();
+});
+
+
+
+
+
+
+</script>
     <!--/////////////////////////////////////// end FEATURES SECTION ////////////////////////////////////////-->
 
 
